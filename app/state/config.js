@@ -1,0 +1,10 @@
+const express = require('express')
+const morgan = require('morgan')
+const compression = require('compression')
+const app = express()
+const route = express.Router()
+app.use(express.json({ limit: '50mb' }))
+app.use(express.urlencoded({ extended: false }))
+app.use(morgan('dev'))
+app.use(compression())
+module.exports = { app, route }
